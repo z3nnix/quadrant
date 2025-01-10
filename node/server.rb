@@ -1,4 +1,4 @@
-require 'socket'
+require "socket"
 require_relative "colors.rb"
 require_relative "console"
 
@@ -93,5 +93,9 @@ class QuadrantServer
   end
 end
 
-server = QuadrantServer.new
-server.run
+begin
+  server = QuadrantServer.new
+  server.run
+rescue IOError
+  puts "[Quadrant]: Server is shutdown"
+end
